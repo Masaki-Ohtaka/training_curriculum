@@ -15,7 +15,7 @@ class CalendarsController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:date, :plan)#Issue4 requireで設定されているcalendars⇨モデル名planに修正しました。
+    params.require(:calendars).permit(:date, :plan)
   end
 
   def getWeek
@@ -34,6 +34,7 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
+<<<<<<< Updated upstream
 
       wday_num = Date.today.wday + x#Issue6 wdayメソッドを用いて取得した数値 + xする事により翌日以降の判定を取得
       if wday_num >= 7#「wday_numが7以上の場合」という条件式
@@ -41,6 +42,9 @@ class CalendarsController < ApplicationController
       end
 
       days = { :month => (@todays_date + x).month, :date => (@todays_date+x).day, :plans => today_plans,:wday => wdays[wday_num]}#Issue6 wdayハッシュを追加
+=======
+      days = { month: (@todays_date + x).month, date:  (@todays_date+x).day, plans:  today_plans}#訂正済lssue1ハッシュロケット⇨シンボル型へ
+>>>>>>> Stashed changes
       @week_days.push(days)
     end
 
