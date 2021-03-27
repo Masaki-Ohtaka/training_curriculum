@@ -41,7 +41,7 @@ class CalendarsController < ApplicationController
         wday_num = wday_num -7
       end
 
-      days = { :month => (@todays_date + x).month, :date => (@todays_date+x).day, :plans => today_plans,:wday => wdays[wday_num]}#Issue6 wdayハッシュを追加
+      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans:  today_plans, wday: wdays[wday_num]}#Issue6 wdayハッシュを追加 ,恐れ入ります。再修正ハッシュロケットから、シンボル型に置き換え
       @week_days.push(days)
     end
 
