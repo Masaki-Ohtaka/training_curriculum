@@ -12,7 +12,7 @@
     <% @week_days.each do |day| %>
       <div class='item'>
         <div class='date'>
-          <%= day[:month] %>/<%= day[:date] %><%= day[:wday] %><%#Issue5 画面上に表示するタグは<%=なので=を追加しました。更にIssue6にて曜日を表示するためday[:wday]を追記%>
+          <% day[:month] %>/<% day[:date] %>
         </div>
         <ul class='content'>
         <% if day[:plans].length != 0 %>
