@@ -2,7 +2,7 @@ class CalendarsController < ApplicationController
 
   # １週間のカレンダーと予定が表示されるページ
   def index
-    getWeek
+    get_week#訂正済lssue2小文字のスネークケース、Weekと大文字が混ざっている事に気がつきませんでした。申し訳ありません。
     @plan = Plan.new
   end
 
@@ -18,7 +18,7 @@ class CalendarsController < ApplicationController
     params.require(:plan).permit(:date, :plan)#Issue4 requireで設定されているcalendars⇨モデル名planに修正しました。
   end
 
-  def getWeek
+  def get_week#訂正済lssue2小文字のスネークケース、Weekと大文字が混ざっている事に気がつきませんでした。申し訳ありません。
     wdays = ['(日)','(月)','(火)','(水)','(木)','(金)','(土)']
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
@@ -34,6 +34,7 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
+
 
       wday_num = Date.today.wday + x#Issue6 wdayメソッドを用いて取得した数値 + xする事により翌日以降の判定を取得
       if wday_num >= 7#「wday_numが7以上の場合」という条件式
